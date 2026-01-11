@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Xacro version of CRX-10iA URDF with parameters -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="crx10">
+  
+  <xacro:property name="pi" value="3.14159265359"/>
+  
+  <!-- Include the base URDF -->
+  <xacro:include filename="$(find crx10_moveit)/urdf/crx10.urdf"/>
+  
+  <!-- Add Gazebo plugins if needed -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+  
+</robot>

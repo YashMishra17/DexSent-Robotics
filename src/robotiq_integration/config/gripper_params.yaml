@@ -1,0 +1,26 @@
+# Robotiq 2F Gripper Parameters
+
+robotiq_gripper_node:
+  ros__parameters:
+    # Gripper model: '2f-85' or '2f-140'
+    gripper_model: '2f-85'
+    
+    # Position limits (meters)
+    min_position: 0.0      # Fully open
+    max_position: 0.085    # Fully closed (85mm for 2F-85, 140mm for 2F-140)
+    
+    # Force limit (Newtons)
+    max_force: 235.0       # Maximum gripping force
+    
+    # Speed limit (m/s)
+    max_speed: 0.15
+    
+    # Control parameters
+    update_rate: 50.0      # State update frequency (Hz)
+    position_tolerance: 0.001  # Position tolerance (meters)
+    force_tolerance: 5.0   # Force tolerance (Newtons)
+    
+    # Hardware communication
+    modbus_address: '192.168.1.11'
+    modbus_port: 502
+    use_simulation: true   # Set to false for real hardware

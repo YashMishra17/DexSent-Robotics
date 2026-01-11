@@ -1,0 +1,55 @@
+```yaml
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Value: true
+      Cell Size: 0.1
+      
+    - Class: rviz_default_plugins/RobotModel
+      Name: LeftArm
+      Robot Description: robot_description
+      TF Prefix: "left_"
+      Value: true
+      Visual Enabled: true
+      
+    - Class: rviz_default_plugins/RobotModel
+      Name: RightArm
+      Robot Description: robot_description
+      TF Prefix: "right_"
+      Value: true
+      Visual Enabled: true
+      
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Value: true
+      Marker Scale: 0.3
+      Show Axes: true
+      Show Names: true
+      
+    - Class: rviz_default_plugins/Axes
+      Name: WorldFrame
+      Value: true
+      Length: 0.5
+      Radius: 0.02
+      
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3.0
+      Focal Point:
+        X: 0.25
+        Y: 0.0
+        Z: 0.5
+      Name: Current View
+      Pitch: 0.6
+      Yaw: 0.8
+```
+
+---

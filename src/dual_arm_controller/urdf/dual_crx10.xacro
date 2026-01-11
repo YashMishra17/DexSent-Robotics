@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Xacro version with macros for dual-arm system -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_crx10">
+  
+  <xacro:property name="pi" value="3.14159265359"/>
+  
+  <!-- Macro for creating a CRX-10iA arm -->
+  <xacro:macro name="crx10_arm" params="prefix parent xyz rpy">
+    <!-- This macro would contain the arm definition -->
+    <!-- For simplicity, we're using the full URDF above -->
+  </xacro:macro>
+  
+  <!-- Include the base URDF -->
+  <xacro:include filename="$(find dual_arm_controller)/urdf/dual_crx10.urdf"/>
+  
+</robot>

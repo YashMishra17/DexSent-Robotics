@@ -1,0 +1,33 @@
+```yaml
+# Example trajectories for testing
+trajectories:
+  home_position:
+    joint_values: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+  ready_position:
+    joint_values: [0.0, -0.785, 1.57, 0.0, 0.785, 0.0]
+  
+  pick_position:
+    joint_values: [0.5, -1.0, 1.8, 0.0, 1.2, 0.0]
+  
+  place_position:
+    joint_values: [-0.5, -1.0, 1.8, 0.0, 1.2, 0.0]
+
+# Simple pick and place sequence
+sequences:
+  pick_and_place:
+    - trajectory: ready_position
+      duration: 3.0
+    - trajectory: pick_position
+      duration: 4.0
+      gripper_action: close
+    - trajectory: ready_position
+      duration: 3.0
+    - trajectory: place_position
+      duration: 4.0
+      gripper_action: open
+    - trajectory: home_position
+      duration: 3.0
+```
+
+---

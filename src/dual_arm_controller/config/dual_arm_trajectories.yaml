@@ -1,0 +1,117 @@
+```yaml
+# Pre-defined synchronized trajectories for dual-arm system
+
+# Home position for both arms
+home_trajectory:
+  left_arm:
+    joint_names:
+      - left_joint_1
+      - left_joint_2
+      - left_joint_3
+      - left_joint_4
+      - left_joint_5
+      - left_joint_6
+    points:
+      - positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        time_from_start: 3.0
+  
+  right_arm:
+    joint_names:
+      - right_joint_1
+      - right_joint_2
+      - right_joint_3
+      - right_joint_4
+      - right_joint_5
+      - right_joint_6
+    points:
+      - positions: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        time_from_start: 3.0
+
+# Collaborative pick position (arms facing each other)
+collaborative_pick:
+  left_arm:
+    points:
+      - positions: [0.785, -0.8, 1.5, 0.0, 0.8, 0.0]
+        time_from_start: 4.0
+  
+  right_arm:
+    points:
+      - positions: [-0.785, -0.8, 1.5, 0.0, 0.8, 0.0]
+        time_from_start: 4.0
+
+# Handover position (object transfer between arms)
+handover_position:
+  description: "Transfer object from right arm to left arm"
+  left_arm:
+    points:
+      - positions: [0.5, -1.0, 1.8, 0.0, 1.0, 0.0]
+        time_from_start: 4.0
+  
+  right_arm:
+    points:
+      - positions: [-0.5, -1.0, 1.8, 0.0, 1.0, 0.0]
+        time_from_start: 4.0
+
+# Mirror motion (synchronized symmetrical movement)
+mirror_motion:
+  description: "Both arms move symmetrically"
+  waypoints:
+    - time: 2.0
+      left_arm: [0.0, -0.5, 1.0, 0.0, 0.5, 0.0]
+      right_arm: [0.0, -0.5, 1.0, 0.0, 0.5, 0.0]
+    
+    - time: 4.0
+      left_arm: [0.785, -1.0, 1.5, 0.0, 1.0, 0.785]
+      right_arm: [-0.785, -1.0, 1.5, 0.0, 1.0, -0.785]
+    
+    - time: 6.0
+      left_arm: [0.0, -0.5, 1.0, 0.0, 0.5, 0.0]
+      right_arm: [0.0, -0.5, 1.0, 0.0, 0.5, 0.0]
+
+# Assembly task sequence
+assembly_sequence:
+  description: "Coordinated assembly operation"
+  phases:
+    - name: "approach"
+      duration: 3.0
+      left_arm: [0.3, -0.8, 1.4, 0.0, 0.8, 0.0]
+      right_arm: [-0.3, -0.8, 1.4, 0.0, 0.8, 0.0]
+    
+    - name: "grasp"
+      duration: 2.0
+      left_arm: [0.5, -1.0, 1.6, 0.0, 1.0, 0.0]
+      right_arm: [-0.5, -1.0, 1.6, 0.0, 1.0, 0.0]
+      gripper_action:
+        left: close
+        right: close
+    
+    - name: "lift"
+      duration: 2.0
+      left_arm: [0.5, -0.6, 1.2, 0.0, 0.6, 0.0]
+      right_arm: [-0.5, -0.6, 1.2, 0.0, 0.6, 0.0]
+    
+    - name: "align"
+      duration: 3.0
+      left_arm: [0.2, -0.7, 1.3, 0.0, 0.7, 0.785]
+      right_arm: [-0.2, -0.7, 1.3, 0.0, 0.7, -0.785]
+    
+    - name: "insert"
+      duration: 2.0
+      left_arm: [0.0, -0.8, 1.4, 0.0, 0.8, 0.0]
+      right_arm: [0.0, -0.8, 1.4, 0.0, 0.8, 0.0]
+    
+    - name: "release"
+      duration: 1.0
+      left_arm: [0.0, -0.8, 1.4, 0.0, 0.8, 0.0]
+      right_arm: [0.0, -0.8, 1.4, 0.0, 0.8, 0.0]
+      gripper_action:
+        left: open
+        right: open
+    
+    - name: "retract"
+      duration: 3.0
+      left_arm: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      right_arm: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+```
+
+---
